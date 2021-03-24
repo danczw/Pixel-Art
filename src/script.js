@@ -8,10 +8,11 @@ image1.addEventListener('load', function() {
     canvas.height = 562;
     
     let particlesArray = [];
-    const numberOfParticles = 5000;
+    const numberOfParticles = 7000;
 
     ctx.drawImage(image1, 0, 0, canvas.width, canvas.height);
     const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    // remove to initialy show image:
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     let mappedImage = [];
@@ -21,7 +22,7 @@ image1.addEventListener('load', function() {
             const red = pixels.data[(y * 4 * pixels.width) + (x * 4)];
             const green = pixels.data[(y * 4 * pixels.width) + (x * 4 + 1)];
             const blue = pixels.data[(y * 4 * pixels.width) + (x * 4 + 2)];
-            const brightness = calculateBrightness(red, green, blue)/100;
+            const brightness = calculateBrightness(red, green, blue)/120;
             const cell = [
                 cellBrightness = brightness
             ];
@@ -31,6 +32,7 @@ image1.addEventListener('load', function() {
     };
     console.log(mappedImage);
 
+    // calculate brightness based on human perception
     function calculateBrightness(red, green, blue) {
         return Math.sqrt(
             (red * red) * 0.299 +
@@ -45,7 +47,7 @@ image1.addEventListener('load', function() {
             this.y = 0;
             this.speed = 0;
             this.velocity = Math.random() * 0.5;
-            this.size = Math.random() * 1.5 + 1;
+            this.size = Math.random() * 1 + 1;
             this.position1 = Math.floor(this.y);
             this.position2 = Math.floor(this.x);
         };

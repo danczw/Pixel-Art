@@ -5,6 +5,7 @@
 }
 body {
     background: black;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 #canvas1 {
     border: 3px solid white;
@@ -14,4 +15,15 @@ body {
     width: 926px;
     height: 562px;
     transform: translate(-50%, -50%);
+}
+#donation {
+    color: rgb(83, 83, 83);
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+#donation p {
+    text-align: center;
 }
