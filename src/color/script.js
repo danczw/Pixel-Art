@@ -8,7 +8,7 @@ image1.addEventListener('load', function() {
     canvas.height = 562;
     
     let particlesArray = [];
-    const numberOfParticles = 7000;
+    const numberOfParticles = 5000;
 
     ctx.drawImage(image1, 0, 0, canvas.width, canvas.height);
     const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -22,7 +22,7 @@ image1.addEventListener('load', function() {
             const red = pixels.data[(y * 4 * pixels.width) + (x * 4)];
             const green = pixels.data[(y * 4 * pixels.width) + (x * 4 + 1)];
             const blue = pixels.data[(y * 4 * pixels.width) + (x * 4 + 2)];
-            const brightness = calculateBrightness(red, green, blue)/90;
+            const brightness = calculateBrightness(red, green, blue)/100;
             const cell = [
                 cellBrightness = brightness,
                 cellColor = `rgb(${red}, ${green}, ${blue})`
@@ -51,22 +51,33 @@ image1.addEventListener('load', function() {
             this.size = Math.random() * 1.5 + 1;
             this.position1 = Math.floor(this.y);
             this.position2 = Math.floor(this.x);
+            this.angle = 0;
         };
         update() {
             this.position1 = Math.floor(this.y);
             this.position2 = Math.floor(this.x);
-            this.speed = mappedImage[this.position1][this.position2][0];
+            if (( mappedImage[this.position1] )&&( mappedImage[this.position1][this.position2] )) {
+                this.speed = mappedImage[this.position1][this.position2][0];
+            };
             let movement = (2.3 - this.speed) + this.velocity;
+            this.angle += this.speed/10;
 
-            this.y += movement;
+            this.y += movement + Math.sin(this.angle) * 2;
+            this.x += movement/3 + Math.cos(this.angle) * 1;
             if (this.y >= canvas.height) {
                 this.y = 0;
                 this.x = Math.random() * canvas.width;
             };
+            if (this.x >= canvas.width) {
+                this.x = 0;
+                this.y = Math.random() * canvas.height;
+            };
         };
         draw() {
             ctx.beginPath();
-            ctx.fillStyle = mappedImage[this.position1][this.position2][1];
+            if (( mappedImage[this.position1] )&&( mappedImage[this.position1][this.position2] )) {
+                ctx.fillStyle = mappedImage[this.position1][this.position2][1];
+            };
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
         };
