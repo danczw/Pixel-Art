@@ -22,7 +22,7 @@ image1.addEventListener('load', function() {
             const red = pixels.data[(y * 4 * pixels.width) + (x * 4)];
             const green = pixels.data[(y * 4 * pixels.width) + (x * 4 + 1)];
             const blue = pixels.data[(y * 4 * pixels.width) + (x * 4 + 2)];
-            const brightness = calculateBrightness(red, green, blue)/110;
+            const brightness = calculateBrightness(red, green, blue)/90;
             const cell = [
                 cellBrightness = brightness,
                 cellColor = `rgb(${red}, ${green}, ${blue})`
@@ -48,7 +48,7 @@ image1.addEventListener('load', function() {
             this.y = 0;
             this.speed = 0;
             this.velocity = Math.random() * 0.5;
-            this.size = Math.random() * 1.1 + 0.9;
+            this.size = Math.random() * 1.5 + 1;
             this.position1 = Math.floor(this.y);
             this.position2 = Math.floor(this.x);
         };
