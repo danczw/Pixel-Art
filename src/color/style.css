@@ -15,6 +15,7 @@ body {
     width: 926px;
     height: 562px;
     transform: translate(-50%, -50%);
+    filter: blur(0.5px) contrast(1.05);
 }
 #donation {
     color: rgb(83, 83, 83);

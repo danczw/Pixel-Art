@@ -86,13 +86,13 @@ image1.addEventListener('load', function() {
             //     ctx.globalCompositeOperation = 'soft-light'; // filter effects
             // };
             // define effect restart
-            if (counter % 50 === 0) {
+            if (counter % 60 === 0) {
                 this.x = Math.random() * canvas.width;
                 this.y = 0;
             }
 
-            this.y += movement + Math.sin(this.angle) * 2;
-            this.x += movement/3 + Math.cos(this.angle) * 1;
+            this.y += movement + Math.sin(this.angle) * 1.8; // change movement
+            this.x += movement/3 + Math.cos(this.angle) * 1; // change movement
             if (this.y >= canvas.height) {
                 this.y = 0;
                 this.x = Math.random() * canvas.width;
