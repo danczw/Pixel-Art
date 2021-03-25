@@ -6,14 +6,31 @@ image1.addEventListener('load', function() {
     const ctx = canvas.getContext('2d');
     canvas.width = 926;
     canvas.height = 562;
-    
-    let particlesArray = [];
-    const numberOfParticles = 5000;
+    const gradient1 = ctx.createLinearGradient(0, 0, canvas.width, canvas.height/2);
+    gradient1.addColorStop(0.2, 'pink');
+    gradient1.addColorStop(0.3, 'red');
+    gradient1.addColorStop(0.4, 'orange');
+    gradient1.addColorStop(0.5, 'yellow');
+    gradient1.addColorStop(0.6, 'green')
+    gradient1.addColorStop(0.7, 'turquoise')
+    gradient1.addColorStop(0.8, 'violet')
+
+    let switcher = 1;
+    let counter = 0;
+    setInterval(function() {
+        counter++;
+        if (counter%12 === 0) {
+            switcher *= -1;
+        }
+    }, 500)
 
     ctx.drawImage(image1, 0, 0, canvas.width, canvas.height);
     const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
     // remove to initialy show image:
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    let particlesArray = [];
+    const numberOfParticles = 7000;
 
     let mappedImage = [];
     for (let y = 0; y < canvas.height; y++) {
@@ -22,7 +39,7 @@ image1.addEventListener('load', function() {
             const red = pixels.data[(y * 4 * pixels.width) + (x * 4)];
             const green = pixels.data[(y * 4 * pixels.width) + (x * 4 + 1)];
             const blue = pixels.data[(y * 4 * pixels.width) + (x * 4 + 2)];
-            const brightness = calculateBrightness(red, green, blue)/100;
+            const brightness = calculateBrightness(red, green, blue)/70;
             const cell = [
                 cellBrightness = brightness,
                 cellColor = `rgb(${red}, ${green}, ${blue})`
@@ -31,7 +48,6 @@ image1.addEventListener('load', function() {
         };
         mappedImage.push(row);
     };
-    console.log(mappedImage);
 
     // calculate brightness based on human perception
     function calculateBrightness(red, green, blue) {
@@ -57,10 +73,23 @@ image1.addEventListener('load', function() {
             this.position1 = Math.floor(this.y);
             this.position2 = Math.floor(this.x);
             if (( mappedImage[this.position1] )&&( mappedImage[this.position1][this.position2] )) {
-                this.speed = mappedImage[this.position1][this.position2][0];
+                this.speed = mappedImage[this.position1][this.position2][0]/5;
             };
-            let movement = (2.3 - this.speed) + this.velocity;
-            this.angle += this.speed/10;
+            let movement = (2.5 - this.speed) + this.velocity;
+            this.angle += this.speed/5; // change angle (circle size) based on speed
+            this.size = this.speed * 2 + 1; // change size based on speed based on brigthness
+
+            
+            // if (switcher === 1) {
+            //     ctx.globalCompositeOperation = 'luminosity'; // filter effects
+            // } else {
+            //     ctx.globalCompositeOperation = 'soft-light'; // filter effects
+            // };
+            // define effect restart
+            if (counter % 50 === 0) {
+                this.x = Math.random() * canvas.width;
+                this.y = 0;
+            }
 
             this.y += movement + Math.sin(this.angle) * 2;
             this.x += movement/3 + Math.cos(this.angle) * 1;
@@ -77,7 +106,10 @@ image1.addEventListener('load', function() {
             ctx.beginPath();
             if (( mappedImage[this.position1] )&&( mappedImage[this.position1][this.position2] )) {
                 ctx.fillStyle = mappedImage[this.position1][this.position2][1];
+                // ctx.strokeStyle = mappedImage[this.position1][this.position2][1];
             };
+            // ctx.fillStyle = gradient1; // color gradient
+            // ctx.strokeRect(this.x, this.y, this.size, this.size)
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
         };
@@ -96,7 +128,8 @@ image1.addEventListener('load', function() {
         ctx.globalAlpha = 0.2;
         for (let i = 0; i < particlesArray.length; i++) {
             particlesArray[i].update();
-            ctx.globalAlpha = particlesArray[i].speed * 0.5;
+            // ctx.globalAlpha = particlesArray[i].speed * 0.5;
+            ctx.globalAlpha = 1;
             particlesArray[i].draw();
         };
         requestAnimationFrame(animate);
