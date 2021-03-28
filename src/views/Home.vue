@@ -1,17 +1,17 @@
 <template>
   <div class="home">
-    <bwArt />
+    <particle />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import bwArt from "@/components/bwArt.vue";
+import particle from "@/components/particle.vue";
 
 export default {
   name: "Home",
   components: {
-    bwArt,
+    particle,
   },
 };
 </script>
