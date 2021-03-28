@@ -3,9 +3,6 @@
     <div class="art">
       <canvas id="canvas1"></canvas>
     </div>
-    <div class="donation">
-      <p>keep this website and my passion running</p>
-    </div>
   </div>
 </template>
 
