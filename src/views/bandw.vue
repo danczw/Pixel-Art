@@ -12,7 +12,6 @@
 <script>
 export default {
   name: "bandw",
-  setup() {},
   mounted() {
     this.effect();
   },
@@ -108,7 +107,6 @@ export default {
         requestAnimationFrame(animate);
       }
       animate();
-
     },
   },
 };
@@ -116,7 +114,7 @@ export default {
 
 <style lang="scss" scoped>
 #canvas1 {
-  border: 3px solid white;
+  border: 1px solid rgb(83, 83, 83);
   top: 50%;
   left: 50%;
   position: absolute;

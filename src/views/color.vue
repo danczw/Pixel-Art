@@ -12,7 +12,6 @@
 <script>
 export default {
   name: "color",
-  setup() {},
   mounted() {
     this.effect();
   },
@@ -162,7 +161,7 @@ export default {
 
 <style lang="scss" scoped>
 #canvas1 {
-  border: 3px solid white;
+  border: 1px solid rgb(83, 83, 83);
   top: 50%;
   left: 50%;
   position: absolute;
@@ -173,7 +172,7 @@ export default {
 }
 
 .donation {
-  color: rgb(83, 83, 83);
+  color: solid rgb(83, 83, 83);
   position: absolute;
   bottom: 0;
   padding-bottom: 10px;
