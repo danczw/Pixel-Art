@@ -45,15 +45,15 @@ export default {
         let counter = 0;
         setInterval(function() {
           counter++;
-        }, 500)
+        }, 600)
 
         ctx.drawImage(image1, 0, 0, canvas.width, canvas.height);
         const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
         // remove to initialy show image:
-        // ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         let particlesArray = [];
-        const numberOfParticles = 5000;
+        const numberOfParticles = 7000;
 
         // calculate brightness based on human perception
         function calculateBrightness(red, green, blue) {
@@ -96,14 +96,14 @@ export default {
               mappedImage[this.position1] &&
               mappedImage[this.position1][this.position2]
             ) {
-              this.speed = mappedImage[this.position1][this.position2][0] / 5;
+              this.speed = mappedImage[this.position1][this.position2][0] / 8;
             }
             let movement = 2.5 - this.speed + this.velocity;
             this.angle += this.speed / 5; // change angle (circle size) based on speed
-            this.size = this.speed * 2 + 1; // change size based on speed based on brigthness
+            this.size = this.speed * 4 + 1; // change size based on speed based on brigthness
 
             // define effect restart
-            if (counter % 60 === 0) {
+            if (counter % 50 === 0) {
               this.x = Math.random() * canvas.width;
               this.y = 0;
             }
@@ -147,7 +147,6 @@ export default {
           ctx.globalAlpha = 0.05;
           ctx.fillStyle = "rgb(0, 0, 0)";
           ctx.fillRect(0, 0, canvas.width, canvas.height);
-          ctx.globalAlpha = 0.2;
           for (let i = 0; i < particlesArray.length; i++) {
             particlesArray[i].update();
             // ctx.globalAlpha = particlesArray[i].speed * 0.5;
