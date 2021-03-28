@@ -30,7 +30,6 @@ image1.addEventListener('load', function() {
         };
         mappedImage.push(row);
     };
-    console.log(mappedImage);
 
     // calculate brightness based on human perception
     function calculateBrightness(red, green, blue) {
@@ -55,7 +54,7 @@ image1.addEventListener('load', function() {
             this.position1 = Math.floor(this.y);
             this.position2 = Math.floor(this.x);
             this.speed = mappedImage[this.position1][this.position2][0];
-            let movement = (2.3 - this.speed) + this.velocity;
+            let movement = 2.3 - this.speed + this.velocity;
 
             this.y += movement;
             if (this.y >= canvas.height) {
