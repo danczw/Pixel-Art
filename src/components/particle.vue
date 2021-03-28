@@ -60,10 +60,24 @@ export default {
           let dx = mouse.x - this.x;
           let dy = mouse.y - this.y;
           let distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < 100) {
-            this.size = 10;
+          let forceDirectionX = dx / distance;
+          let forceDirectionY = dy / distance;
+          let maxDistance = mouse.radius;
+          let force = (maxDistance - distance) / maxDistance;
+          let directionX = forceDirectionX * force * this.density;
+          let directionY = forceDirectionY * force * this.density;
+          if (distance < mouse.radius) {
+            this.x -= directionX;
+            this.y -= directionY;
           } else {
-            this.size = 3;
+            if (this.x !== this.baseX) {
+              let dx = this.x - this.baseX;
+              this.x -= dx/5;
+            };
+            if (this.y !== this.baseY) {
+              let dy = this.y - this.baseY;
+              this.y -= dy/5;
+            }
           }
         }
       };
