@@ -33,6 +33,7 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
   text-align: center;
   color: #2c3e50;
 
@@ -74,7 +75,9 @@
         }
 
         .inner:hover {
-          background-image: url("https://scottyzen.sirv.com/Images/v/button.png");
+          // background-image: url("https://scottyzen.sirv.com/Images/v/button.png");
+          border-radius: 5px;
+          background-color: white;
           background-size: 100% 100%;
           animation: spring 300ms ease-out;
           text-shadow: 0 -1px 0 black;

@@ -24,8 +24,8 @@ export default {
 
       const canvas = document.getElementById("canvas1");
       const ctx = canvas.getContext("2d");
-      canvas.width = 1210;
-      canvas.height = 734;
+      canvas.width = window.innerWidth * 0.99;
+      canvas.height = window.innerWidth * 0.607;
 
       ctx.drawImage(image1, 0, 0, canvas.width, canvas.height);
       const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -33,7 +33,7 @@ export default {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       let particlesArray = [];
-      const numberOfParticles = 7000;
+      const numberOfParticles = 5000;
 
       // calculate brightness based on human perception
       function calculateBrightness(red, green, blue) {
@@ -114,12 +114,9 @@ export default {
 
 <style lang="scss" scoped>
 #canvas1 {
-  border: 1px solid rgb(83, 83, 83);
   top: 50%;
   left: 50%;
   position: absolute;
-  width: 1210px;
-  height: 734px;
   transform: translate(-50%, -50%);
   filter: blur(0.5px) contrast(1.05);
 }
