@@ -3,6 +3,7 @@
     <div class="art">
       <canvas id="canvas1"></canvas>
       <canvas id="canvas2"></canvas>
+      <canvas id="canvas3"></canvas>
     </div>
   </div>
 </template>
@@ -25,7 +26,7 @@ export default {
       let adjustX = window.innerWidth / 200; // move text on x-axis
       let adjustY = window.innerWidth / 85; // move text on y-axis
 
-      // handke mouse
+      // handle mouse
       const mouse = {
         x: null,
         y: null,
@@ -291,6 +292,12 @@ export default {
 }
 
 #canvas2 {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+#canvas3 {
   top: 0;
   left: 0;
   position: absolute;

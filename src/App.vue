@@ -77,7 +77,7 @@
         .inner:hover {
           // background-image: url("https://scottyzen.sirv.com/Images/v/button.png");
           border-radius: 5px;
-          background-color: white;
+          background-color: #385877;
           background-size: 100% 100%;
           animation: spring 300ms ease-out;
           text-shadow: 0 -1px 0 black;
