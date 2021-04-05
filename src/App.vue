@@ -6,17 +6,17 @@
     <div class="wrapper__nav">
       <div class="outer">
         <div class="inner">
-          <router-link to="/">Home</router-link>
+          <router-link to="/particle">Particle</router-link>
         </div>
       </div>
       <div class="outer">
         <div class="inner">
-          <router-link to="/color">Color</router-link>
+          <router-link to="/color">Lakeside</router-link>
         </div>
       </div>
       <div class="outer">
         <div class="inner">
-          <router-link to="/bandw">B & W</router-link>
+          <router-link to="/bandw">Portrait</router-link>
         </div>
       </div>
       <div class="outer">
@@ -30,12 +30,11 @@
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Lato";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
   text-align: center;
-  color: #2c3e50;
 
   .wrapper__app {
     width: 100vw;
@@ -71,7 +70,7 @@
 
           a {
             text-decoration: none;
-            color: #385877;
+            color: rgb(147, 29, 63);
             font-size: 30px;
           }
         }
@@ -79,7 +78,7 @@
         .inner:hover {
           // background-image: url("https://scottyzen.sirv.com/Images/v/button.png");
           border-radius: 5px;
-          background-color: #385877;
+          background-color: rgb(147, 29, 63);
           background-size: 100% 100%;
           animation: spring 300ms ease-out;
           text-shadow: 0 -1px 0 black;
