@@ -52,7 +52,7 @@ export default {
           this.density = Math.random() * 30 + 1;
         }
         draw() {
-          ctx.fillStyle = "rgb(44, 62, 80)";
+          ctx.fillStyle = "rgb(147, 29, 63)";
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
           ctx.closePath();
@@ -131,10 +131,10 @@ export default {
                 ctx.strokeStyle = `rgba(100, 255, 255, ${opacityValue})`;
               } else if (mouseDistance < mouse.radius) {
                 particleArray[a].size = 3;
-                ctx.strokeStyle = `rgba(173, 244, 248, ${opacityValue})`;
+                ctx.strokeStyle = `rgba(173, 244, 245, ${opacityValue})`;
               } else {
                 particleArray[a].size = 2;
-                ctx.strokeStyle = `rgba(147, 29, 63, ${opacityValue})`;
+                ctx.strokeStyle = `rgba(44, 62, 80, ${opacityValue})`;
               }
 
               ctx.lineWidth = 2;
@@ -182,7 +182,7 @@ export default {
           this.density = Math.random() * 30 + 1;
         }
         draw() {
-          ctx.fillStyle = "rgb(44, 62, 80)";
+          ctx.fillStyle = "rgb(25, 255, 255)";
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
           ctx.closePath();
@@ -264,7 +264,7 @@ export default {
                 ctx.strokeStyle = `rgba(242, 179, 198, ${opacityValue})`;
               } else {
                 particleArray[a].size = 2;
-                ctx.strokeStyle = `rgba(25, 255, 255, ${opacityValue})`;
+                ctx.strokeStyle = `rgba(44, 62, 80, ${opacityValue})`;
               }
 
               ctx.lineWidth = 2;
