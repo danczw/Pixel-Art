@@ -3,7 +3,6 @@
     <div class="art">
       <canvas id="canvas1"></canvas>
       <canvas id="canvas2"></canvas>
-      <canvas id="canvas3"></canvas>
     </div>
   </div>
 </template>
@@ -53,7 +52,7 @@ export default {
           this.density = Math.random() * 30 + 1;
         }
         draw() {
-          ctx.fillStyle = "rgb(44,62,80)";
+          ctx.fillStyle = "rgb(147, 29, 63)";
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
           ctx.closePath();
@@ -126,13 +125,13 @@ export default {
 
               if (mouseDistance < mouse.radius / 2) {
                 particleArray[a].size = 5;
-                ctx.strokeStyle = `rgba(255, 25, 25, ${opacityValue})`;
+                ctx.strokeStyle = `rgba(100, 255, 255, ${opacityValue})`;
               } else if (mouseDistance < mouse.radius - 50) {
                 particleArray[a].size = 4;
-                ctx.strokeStyle = `rgba(255, 100, 100, ${opacityValue})`;
+                ctx.strokeStyle = `rgba(100, 255, 255, ${opacityValue})`;
               } else if (mouseDistance < mouse.radius) {
                 particleArray[a].size = 3;
-                ctx.strokeStyle = `rgba(255, 150, 150, ${opacityValue})`;
+                ctx.strokeStyle = `rgba(173, 244, 245, ${opacityValue})`;
               } else {
                 particleArray[a].size = 2;
                 ctx.strokeStyle = `rgba(44, 62, 80, ${opacityValue})`;
@@ -157,7 +156,7 @@ export default {
       let adjustX = window.innerWidth / 200; // move text on x-axis
       let adjustY = window.innerWidth / 40; // move text on y-axis
 
-      // handke mouse
+      // handle mouse
       const mouse = {
         x: null,
         y: null,
@@ -171,7 +170,6 @@ export default {
       ctx.fillStyle = "white";
       ctx.font = "30px Arial";
       ctx.fillText("Distance", 30, 30);
-      // ctx.fillText("Distance", 30, 30);
       const textData = ctx.getImageData(0, 0, 200, 200); // check scan area
 
       class Particle {
@@ -257,13 +255,13 @@ export default {
 
               if (mouseDistance < mouse.radius / 2) {
                 particleArray[a].size = 5;
-                ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
+                ctx.strokeStyle = `rgb(255, 29, 94, ${opacityValue})`;
               } else if (mouseDistance < mouse.radius - 50) {
                 particleArray[a].size = 4;
-                ctx.strokeStyle = `rgba(100, 255, 255, ${opacityValue})`;
+                ctx.strokeStyle = `rgba(147, 29, 63, ${opacityValue})`;
               } else if (mouseDistance < mouse.radius) {
                 particleArray[a].size = 3;
-                ctx.strokeStyle = `rgba(175, 230, 255, ${opacityValue})`;
+                ctx.strokeStyle = `rgba(242, 179, 198, ${opacityValue})`;
               } else {
                 particleArray[a].size = 2;
                 ctx.strokeStyle = `rgba(44, 62, 80, ${opacityValue})`;
@@ -292,12 +290,6 @@ export default {
 }
 
 #canvas2 {
-  top: 0;
-  left: 0;
-  position: absolute;
-}
-
-#canvas3 {
   top: 0;
   left: 0;
   position: absolute;

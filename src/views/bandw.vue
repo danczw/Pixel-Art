@@ -8,7 +8,9 @@
       <div id="circle"></div>
     </div>
     <div class="donation">
-      <p>keep this website and my passion running</p>
+      <router-link to="/about"
+        ><p>keep this website and my passion running</p></router-link
+      >
     </div>
   </div>
 </template>
@@ -139,12 +141,12 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #12dcff;
+    background: rgb(25, 255, 255);
     height: 40px;
     width: 150px;
     border: none;
     border-radius: 10px;
-    color: #eee;
+    color: black;
     font-size: 25px;
     transition: 1s;
     -webkit-tap-highlight-color: transparent;
@@ -164,7 +166,7 @@ export default {
     top: 0;
     left: 50%;
     overflow: hidden;
-    transition: 250ms;
+    transition: 100ms;
   }
 
   .noselect {
@@ -178,6 +180,7 @@ export default {
 
   #btn:hover {
     background: transparent;
+    color: white;
   }
 
   #btn:hover #circle {
@@ -185,7 +188,8 @@ export default {
     width: 150px;
     left: 0;
     border-radius: 0;
-    border-bottom: 2px solid #12dcff;
+    border-bottom: 2px solid rgb(255, 29, 94);
+    color: white;
   }
 
   .donation {
