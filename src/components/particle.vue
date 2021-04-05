@@ -53,7 +53,7 @@ export default {
           this.density = Math.random() * 30 + 1;
         }
         draw() {
-          ctx.fillStyle = "white";
+          ctx.fillStyle = "rgb(44,62,80)";
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
           ctx.closePath();
@@ -132,10 +132,10 @@ export default {
                 ctx.strokeStyle = `rgba(255, 100, 100, ${opacityValue})`;
               } else if (mouseDistance < mouse.radius) {
                 particleArray[a].size = 3;
-                ctx.strokeStyle = `rgba(255, 200, 200, ${opacityValue})`;
+                ctx.strokeStyle = `rgba(255, 150, 150, ${opacityValue})`;
               } else {
                 particleArray[a].size = 2;
-                ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
+                ctx.strokeStyle = `rgba(44, 62, 80, ${opacityValue})`;
               }
 
               ctx.lineWidth = 2;
@@ -184,7 +184,7 @@ export default {
           this.density = Math.random() * 30 + 1;
         }
         draw() {
-          ctx.fillStyle = "white";
+          ctx.fillStyle = "rgb(25, 255, 255)";
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
           ctx.closePath();
@@ -257,7 +257,7 @@ export default {
 
               if (mouseDistance < mouse.radius / 2) {
                 particleArray[a].size = 5;
-                ctx.strokeStyle = `rgba(25, 255, 255, ${opacityValue})`;
+                ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
               } else if (mouseDistance < mouse.radius - 50) {
                 particleArray[a].size = 4;
                 ctx.strokeStyle = `rgba(100, 255, 255, ${opacityValue})`;
@@ -266,7 +266,7 @@ export default {
                 ctx.strokeStyle = `rgba(175, 230, 255, ${opacityValue})`;
               } else {
                 particleArray[a].size = 2;
-                ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
+                ctx.strokeStyle = `rgba(44, 62, 80, ${opacityValue})`;
               }
 
               ctx.lineWidth = 2;
