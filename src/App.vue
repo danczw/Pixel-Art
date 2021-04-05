@@ -6,7 +6,7 @@
     <div class="wrapper__nav">
       <div class="outer">
         <div class="inner">
-          <router-link to="/particle">Particle</router-link>
+          <router-link to="/particle">Digital</router-link>
         </div>
       </div>
       <div class="outer">
