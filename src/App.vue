@@ -1,8 +1,8 @@
 <template>
-  <div class="wrapper">
-    <div class="wrapper__content">
-      <router-view />
-    </div>
+  <div class="wrapper__app">
+    <!-- <div class="wrapper__content"> -->
+    <router-view />
+    <!-- </div> -->
     <div class="wrapper__nav">
       <div class="outer">
         <div class="inner">
@@ -37,7 +37,9 @@
   text-align: center;
   color: #2c3e50;
 
-  .wrapper {
+  .wrapper__app {
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: row;
 
