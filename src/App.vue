@@ -49,7 +49,7 @@
       display: flex;
       flex-direction: column;
       position: absolute;
-      right: 10px;
+      right: 20px;
 
       .outer {
         display: flex;
