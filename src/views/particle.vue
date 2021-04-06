@@ -41,6 +41,8 @@ export default {
       ctx.fillText("Digital", 30, 30);
       // ctx.fillText("Distance", 30, 30);
       const textData = ctx.getImageData(0, 0, 200, 200); // check scan area
+      const textDataHeigth = textData.height;
+      const textDataWidth = textData.width;
 
       class Particle {
         constructor(x, y) {
@@ -85,9 +87,9 @@ export default {
       }
       function init() {
         particleArray = [];
-        for (let y = 0, y2 = textData.height; y < y2; y++) {
-          for (let x = 0, x2 = textData.width; x < x2; x++) {
-            if (textData.data[y * 4 * textData.width + x * 4 + 3] > 128) {
+        for (let y = 0, y2 = textDataHeigth; y < y2; y++) {
+          for (let x = 0, x2 = textDataWidth; x < x2; x++) {
+            if (textData.data[y * 4 * textDataWidth + x * 4 + 3] > 128) {
               let positionX = x + adjustX;
               let positionY = y + adjustY;
               particleArray.push(new Particle(positionX * 9, positionY * 9)); // change size of effect
@@ -97,9 +99,10 @@ export default {
       }
       init();
 
+      const particleArrayLength = particleArray.length;
       function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < particleArray.length; i++) {
+        for (let i = 0; i < particleArrayLength; i++) {
           particleArray[i].draw();
           particleArray[i].update();
         }
@@ -110,8 +113,8 @@ export default {
 
       function connect() {
         let opacityValue = 1;
-        for (let a = 0; a < particleArray.length; a++) {
-          for (let b = a; b < particleArray.length; b++) {
+        for (let a = 0; a < particleArrayLength; a++) {
+          for (let b = a; b < particleArrayLength; b++) {
             let dx = particleArray[a].x - particleArray[b].x;
             let dy = particleArray[a].y - particleArray[b].y;
             let distance = Math.sqrt(dx * dx + dy * dy);
@@ -171,6 +174,8 @@ export default {
       ctx.font = "30px Arial";
       ctx.fillText("Distance", 30, 30);
       const textData = ctx.getImageData(0, 0, 200, 200); // check scan area
+      const textDataHeigth = textData.height;
+      const textDataWidth = textData.width;
 
       class Particle {
         constructor(x, y) {
@@ -215,9 +220,9 @@ export default {
       }
       function init() {
         particleArray = [];
-        for (let y = 0, y2 = textData.height; y < y2; y++) {
-          for (let x = 0, x2 = textData.width; x < x2; x++) {
-            if (textData.data[y * 4 * textData.width + x * 4 + 3] > 128) {
+        for (let y = 0, y2 = textDataHeigth; y < y2; y++) {
+          for (let x = 0, x2 = textDataWidth; x < x2; x++) {
+            if (textData.data[y * 4 * textDataWidth + x * 4 + 3] > 128) {
               let positionX = x + adjustX;
               let positionY = y + adjustY;
               particleArray.push(new Particle(positionX * 9, positionY * 9)); // change size of effect
@@ -227,9 +232,10 @@ export default {
       }
       init();
 
+      const particleArrayLength = particleArray.length;
       function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < particleArray.length; i++) {
+        for (let i = 0; i < particleArrayLength; i++) {
           particleArray[i].draw();
           particleArray[i].update();
         }
@@ -240,8 +246,8 @@ export default {
 
       function connect() {
         let opacityValue = 1;
-        for (let a = 0; a < particleArray.length; a++) {
-          for (let b = a; b < particleArray.length; b++) {
+        for (let a = 0; a < particleArrayLength; a++) {
+          for (let b = a; b < particleArrayLength; b++) {
             let dx = particleArray[a].x - particleArray[b].x;
             let dy = particleArray[a].y - particleArray[b].y;
             let distance = Math.sqrt(dx * dx + dy * dy);
