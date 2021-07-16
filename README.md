@@ -1,4 +1,4 @@
-# pixel_art_app
+# Pixel Art
 
 ## Project setup
 ```
