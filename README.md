@@ -1,5 +1,7 @@
 # Pixel Art
 
+Vue based app showcasing some different pixel arts using JavaScript.
+
 ## Project setup
 ```
 npm install
